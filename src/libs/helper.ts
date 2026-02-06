@@ -57,10 +57,10 @@ export function searchAuthorNameUrl(authorName: string) {
   return url;
 }
 export function transferSearchBookNameData(data: string): string {
-  return data.replace(/ /g, "+");
+  return encodeURIComponent(data.trim());
 }
 export function transferSearchAuthorNameData(data: string): string {
-  return data.replace(/ /g, "%20");
+  return encodeURIComponent(data.trim());
 }
 export function getBookId(data: string): string {
   return data.replace("/works/", "");
@@ -68,7 +68,7 @@ export function getBookId(data: string): string {
 export function getBooksInPageNum(pageNum: number, books: Book[]) {
   const limit = 12;
   const start = (pageNum - 1) * limit;
-  const end = pageNum * limit - 1;
+  const end = pageNum * limit;
   return books.slice(start, end);
 }
 
@@ -76,5 +76,5 @@ export function getBookItemDetailUrl(bookWorkId: string) {
   return `${API.API_PATH.APP.BOOKS.BOOK_DETAIL}/${bookWorkId}${API.API_PATH.APP.BOOKS.ENDPOINT}`;
 }
 export function gotoBookItemDetailPage(bookId: string, authorName: string) {
-  return `/book-store-assignment/books/?key=${bookId}&&author=${authorName}`;
+  return `/book-store-assignment/books/?key=${bookId}&author=${authorName}`;
 }

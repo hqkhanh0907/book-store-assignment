@@ -4,7 +4,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    alias: {},
+    alias: {
+      "@": "/src",
+    },
     setupFiles: ["./src/setupTests.ts"],
   },
 });

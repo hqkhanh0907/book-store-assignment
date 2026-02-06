@@ -51,7 +51,6 @@ const BookItem: React.FC<Props> = ({ bookItem }) => {
     const origin = window.location.origin;
     const toBookItem = getUrlToBookItem();
     const fullUrl = `${origin}${toBookItem}`;
-    console.log(origin, toBookItem, fullUrl);
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
       "_blank"
