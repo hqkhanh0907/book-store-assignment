@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import loadable from "@loadable/component";
 
 const Dashboard = loadable(() => import("@/views/dashboard/Dashboard"), {

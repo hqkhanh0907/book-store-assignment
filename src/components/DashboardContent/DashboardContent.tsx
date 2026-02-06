@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState, KeyboardEvent } from "react";
+import { ChangeEvent, useEffect, useRef, useState, KeyboardEvent } from "react";
 import { Pagination } from "antd";
 import {
   SearchOutlined,
@@ -37,6 +37,10 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState(searchBookName);
   const searchBookNameRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setInputValue(searchBookName);
+  }, [searchBookName]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
